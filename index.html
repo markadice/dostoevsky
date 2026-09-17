@@ -7,7 +7,7 @@
   * { box-sizing: border-box; margin: 0; padding: 0; }
   body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: #edeef0; color: #000; padding-top: 64px; padding-bottom: 20px; }
   
-  /* ИСПРАВЛЕННАЯ ФИКСИРОВАННАЯ ШАПКА */
+  /* ВЕРХНЯЯ ПАНЕЛЬ */
   .top-header { background: #ffffff; height: 48px; border-bottom: 1px solid #e7e8ec; position: fixed; top: 0; left: 0; width: 100%; z-index: 2000; display: flex; align-items: center; justify-content: center; }
   .header-content { max-width: 960px; width: 100%; display: flex; align-items: center; justify-content: space-between; padding: 0 20px; }
   .header-left { display: flex; align-items: center; gap: 20px; }
@@ -19,7 +19,7 @@
   .header-right { display: flex; align-items: center; gap: 16px; font-size: 18px; }
   .header-mini-avatar { width: 28px; height: 28px; border-radius: 50%; object-fit: cover; }
 
-  /* СЕТКА САЙТА — ЛЕВОЕ МЕНЮ И ЛЕНТА ПОСТОВ */
+  /* СЕТКА САЙТА */
   .wrapper { max-width: 960px; margin: 0 auto; display: flex; gap: 20px; padding: 0 20px; }
   .left-menu { width: 180px; flex-shrink: 0; position: sticky; top: 68px; height: fit-content; }
   .menu-item { display: flex; align-items: center; justify-content: space-between; padding: 6px 8px; font-size: 14px; color: #000; text-decoration: none; border-radius: 6px; margin-bottom: 2px; }
@@ -32,7 +32,7 @@
   .card { background: #fff; border-radius: 8px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); margin-bottom: 12px; overflow: hidden; }
   .profile-header { padding: 20px; display: flex; gap: 20px; }
   
-  /* СТИЛИ ОТОБРАЖЕНИЯ ВАШИХ КАРТИНОК */
+  /* ФОТОГРАФИИ С ГИТХАБА */
   .avatar { width: 120px; height: 120px; border-radius: 50%; border: 3px solid #fff; box-shadow: 0 1px 4px rgba(0,0,0,0.2); object-fit: cover; flex-shrink: 0; }
   .post-avatar, .comment-avatar { width: 40px; height: 40px; border-radius: 50%; object-fit: cover; flex-shrink: 0; }
   .comment-avatar { width: 32px; height: 32px; }
@@ -66,7 +66,7 @@
 </head>
 <body>
 
-  <!-- ФИКСИРОВАННАЯ ШАПКА -->
+  <!-- ФИКСИРОВАННАЯ ШАПКА СВЕРХУ -->
   <div class="top-header">
     <div class="header-content">
       <div class="header-left">
@@ -76,7 +76,7 @@
           <input type="text" class="header-search" placeholder="Поиск цензуры...">
         </div>
       </div>
-      <div class="header-right"><span>🔔</span><span>🎵</span><img class="header-mini-avatar" src="dostoevsky.jpg" alt=""></div>
+      <div class="header-right"><span>🔔</span><span>🎵</span><img class="header-mini-avatar" src="dostoevsky.jpeg" alt=""></div>
     </div>
   </div>
 
@@ -99,7 +99,7 @@
       <!-- АНКЕТА -->
       <div class="card">
         <div class="profile-header">
-          <img class="avatar" src="dostoevsky.jpg" alt="">
+          <img class="avatar" src="dostoevsky.jpeg" alt="">
           <div class="profile-info">
             <h1>Фёдор Достоевский</h1>
             <div class="status">Пишу роман. Персонажи не слушаются. Особенно этот… как его… Иван.</div>
@@ -122,93 +122,93 @@
         <div class="story-container">
           <div class="story-card" style="background-image: url('dost_story1.jpg');"><span>2 часа назад</span><p style="text-shadow: 1px 1px 2px #000;">«Ночь. Жёлтый дом. Кажется, идёт Раскольников. Или это я.»</p></div>
           <div class="story-card" style="background-image: url('dost_story2.jpg');"><span>5 часов назад</span><p style="text-shadow: 1px 1px 2px #000;">«Перечитал роман. Плакал. Жалко себя. В смысле, страдаю.»</p></div>
-          <div class="story-card" style="background-image: url('dost_story3.jpg');"><span>вчера</span><p style="text-shadow: 1px 1px 2px #000;">«Смотрел на Пушкина. Написал речь. Заплакал. Всё как обычно.»</p></div>
+          <div class="story-card" style="background-image: url('dost_story3.jpeg');"><span>вчера</span><p style="text-shadow: 1px 1px 2px #000;">«Смотрел на Пушкина. Написал речь. Заплакал. Всё как обычно.»</p></div>
         </div>
       </div>
       <!-- ПОСТ 1 -->
       <div class="card"><div class="post">
-        <div class="post-header"><img class="post-avatar" src="dostoevsky.jpg"><div><div class="post-author">Фёдор Достоевский</div><div class="post-date">сегодня в 06:14</div></div></div>
+        <div class="post-header"><img class="post-avatar" src="dostoevsky.jpeg"><div><div class="post-author">Фёдор Достоевский</div><div class="post-date">сегодня в 06:14</div></div></div>
         <div class="post-text">Вспоминаю Омский острог. Четыре года каторги. Самое страшное — бани. Восемь человек на пяти полках. И все молчат. Никто не говорит. Четыре года молчания — это хуже каторги. Зато материал для романа собрал. Не благодарите.</div>
         <img class="post-img" src="omsk.jpg">
         <div class="post-actions"><span class="like-btn" data-count="512">❤️ <span class="like-count">512</span></span><span>💬 4</span><span>↗ Поделиться</span></div>
       </div><div class="comments">
         <div class="comment"><img class="comment-avatar" src="nekrasov.jpg"><div class="comment-body"><div class="comment-author">Николай Некрасов</div><div class="comment-text">Фёдор, приходи в «Современник», обсудим. Мы как раз про каторгу пишем.</div><span class="like-small">❤️ 12</span></div></div>
-        <div class="comment comment-reply"><img class="comment-avatar" src="dostoevsky.jpg"><div class="comment-body"><div class="comment-author">Фёдор Достоевский</div><div class="comment-text">Николай Алексеевич, я только что с каторги. Дайте хоть чай попить.</div><span class="like-small">❤️ 34</span></div></div>
+        <div class="comment comment-reply"><img class="comment-avatar" src="dostoevsky.jpeg"><div class="comment-body"><div class="comment-author">Фёдор Достоевский</div><div class="comment-text">Николай Алексеевич, я только что с каторги. Дайте хоть чай попить.</div><span class="like-small">❤️ 34</span></div></div>
         <div class="comment"><img class="comment-avatar" src="turgenev.jpg"><div class="comment-body"><div class="comment-author">Иван Тургенев</div><div class="comment-text">Вы всё о страданиях. А я вот во Франции был — там тепло.</div><span class="like-small">❤️ 8</span></div></div>
-        <div class="comment comment-reply"><img class="comment-avatar" src="dostoevsky.jpg"><div class="comment-body"><div class="comment-author">Фёдор Достоевский</div><div class="comment-text">Иван Сергеевич, у вас своя Франция, у меня свой Омск. Не путайте.</div><span class="like-small">❤️ 67</span></div></div>
+        <div class="comment comment-reply"><img class="comment-avatar" src="dostoevsky.jpeg"><div class="comment-body"><div class="comment-author">Фёдор Достоевский</div><div class="comment-text">Иван Сергеевич, у вас своя Франция, у меня свой Омск. Не путайте.</div><span class="like-small">❤️ 67</span></div></div>
       </div></div>
 
       <!-- ПОСТ 2 -->
       <div class="card"><div class="post">
-        <div class="post-header"><img class="post-avatar" src="dostoevsky.jpg"><div><div class="post-author">Фёдор Достоевский</div><div class="post-date">вчера в 23:47</div></div></div>
+        <div class="post-header"><img class="post-avatar" src="dostoevsky.jpeg"><div><div class="post-author">Фёдор Достоевский</div><div class="post-date">вчера в 23:47</div></div></div>
         <div class="post-text">Достоевский в Инженерном училище. Иду в ординарцах к Великому Князю Михаилу Павловичу. Забыл отрапортовать: «К Вашему ... Высочеству». Князь посмотрел на меня и сказал: «Посылают же таких дураков». Потом написал роман «Идиот». Слово тогда означало «не такой как все». Просто констатация.</div>
         <img class="post-img" src="uchilische.jpg">
         <div class="post-actions"><span class="like-btn" data-count="674">❤️ <span class="like-count">674</span></span><span>💬 4</span><span>↗ Поделиться</span></div>
       </div><div class="comments">
         <div class="comment"><img class="comment-avatar" src="snitkina.jpg"><div class="comment-body"><div class="comment-author">Анна Сниткина</div><div class="comment-text">Федя, ты опять про Князя. Иди спать. Завтра сдавать главу.</div><span class="like-small">❤️ 45</span></div></div>
-        <div class="comment comment-reply"><img class="comment-avatar" src="dostoevsky.jpg"><div class="comment-body"><div class="comment-author">Фёдор Достоевский</div><div class="comment-text">Аня, я работаю. В смысле, страдаю. В смысле, иду спать.</div><span class="like-small">❤️ 78</span></div></div>
+        <div class="comment comment-reply"><img class="comment-avatar" src="dostoevsky.jpeg"><div class="comment-body"><div class="comment-author">Фёдор Достоевский</div><div class="comment-text">Аня, я работаю. В смысле, страдаю. В смысле, иду спать.</div><span class="like-small">❤️ 78</span></div></div>
         <div class="comment"><img class="comment-avatar" src="nikolay1.jpg"><div class="comment-body"><div class="comment-author">Николай I</div><div class="comment-text">Я не это имел в виду. Но роман хороший. Читал. Дважды.</div><span class="like-small">❤️ 102</span></div></div>
-        <div class="comment comment-reply"><img class="comment-avatar" src="dostoevsky.jpg"><div class="comment-body"><div class="comment-author">Фёдор Достоевский</div><div class="comment-text">Ваше Величество, вы меня чуть не расстреляли. Но спасибо за отзыв.</div><span class="like-small">❤️ 156</span></div></div>
+        <div class="comment comment-reply"><img class="comment-avatar" src="dostoevsky.jpeg"><div class="comment-body"><div class="comment-author">Фёдор Достоевский</div><div class="comment-text">Ваше Величество, вы меня чуть не расстреляли. Но спасибо за отзыв.</div><span class="like-small">❤️ 156</span></div></div>
       </div></div>
       <!-- ПОСТ 3 -->
       <div class="card"><div class="post">
-        <div class="post-header"><img class="post-avatar" src="dostoevsky.jpg"><div><div class="post-author">Фёдор Достоевский</div><div class="post-date">вчера в 19:40</div></div></div>
+        <div class="post-header"><img class="post-avatar" src="dostoevsky.jpeg"><div><div class="post-author">Фёдор Достоевский</div><div class="post-date">вчера в 19:40</div></div></div>
         <div class="post-text">Был в Висбадене. Проиграл всё. Абсолютно всё. Включая то, чего не было. Занял у Тургенева — проиграл. Занял у Анны — проиграл. Заложил обручальное кольцо. Написал «Игрока» за 26 дней, чтобы вернуть долги. Аня сказала: «Больше никогда». Я сказал: «Конечно». Через неделю проиграл снова.</div>
         <img class="post-img" src="visbaden.jpg">
         <div class="post-actions"><span class="like-btn" data-count="421">❤️ <span class="like-count">421</span></span><span>💬 3</span><span>↗ Поделиться</span></div>
       </div><div class="comments">
         <div class="comment"><img class="comment-avatar" src="snitkina.jpg"><div class="comment-body"><div class="comment-author">Анна Сниткина</div><div class="comment-text">Федя, я тебе сказала: больше никогда. А ты что сделал?</div><span class="like-small">❤️ 34</span></div></div>
-        <div class="comment comment-reply"><img class="comment-avatar" src="dostoevsky.jpg"><div class="comment-body"><div class="comment-author">Фёдор Достоевский</div><div class="comment-text">Аня, это был последний раз. Ну, может, предпоследний.</div><span class="like-small">❤️ 89</span></div></div>
+        <div class="comment comment-reply"><img class="comment-avatar" src="dostoevsky.jpeg"><div class="comment-body"><div class="comment-author">Фёдор Достоевский</div><div class="comment-text">Аня, это был последний раз. Ну, может, предпоследний.</div><span class="like-small">❤️ 89</span></div></div>
         <div class="comment"><img class="comment-avatar" src="turgenev.jpg"><div class="comment-body"><div class="comment-author">Иван Тургенев</div><div class="comment-text">Фёдор, ты мне деньги так и не вернул.</div><span class="like-small">❤️ 21</span></div></div>
-        <div class="comment comment-reply"><img class="comment-avatar" src="dostoevsky.jpg"><div class="comment-body"><div class="comment-author">Фёдор Достоевский</div><div class="comment-text">Иван Сергеевич, я верну. С процентами. Когда выиграю. То есть никогда.</div><span class="like-small">❤️ 112</span></div></div>
+        <div class="comment comment-reply"><img class="comment-avatar" src="dostoevsky.jpeg"><div class="comment-body"><div class="comment-author">Фёдор Достоевский</div><div class="comment-text">Иван Сергеевич, я верну. С процентами. Когда выиграю. То есть никогда.</div><span class="like-small">❤️ 112</span></div></div>
       </div></div>
 
       <!-- ПОСТ 4 -->
       <div class="card"><div class="post">
-        <div class="post-header"><img class="post-avatar" src="dostoevsky.jpg"><div><div class="post-author">Фёдор Достоевский</div><div class="post-date">3 дня назад</div></div></div>
-        <div class="post-text">Выступил с речью о Пушкине. Зал плакал. Я плакал. Все плакали. Студент подошел: «Вы наш пророк». Я: «Я просто писатель, который не спит ночами». Он: «Это и есть пророчество». Я: «Нет. Это бессонница».</div>
+        <div class="post-header"><img class="post-avatar" src="dostoevsky.jpeg"><div><div class="post-author">Фёдор Достоевский</div><div class="post-date">3 дня назад</div></div></div>
+        <div class="post-text">Выступил с речью о Пушке. Зал плакал. Я плакал. Все плакали. Студент подошел: «Вы наш пророк». Я: «Я просто писатель, который не спит ночами». Он: «Это и есть пророчество». Я: «Нет. Это бессонница».</div>
         <div class="post-actions"><span class="like-btn" data-count="889">❤️ <span class="like-count">889</span></span><span>💬 3</span><span>↗ Поделиться</span></div>
       </div><div class="comments">
         <div class="comment"><img class="comment-avatar" src="snitkina.jpg"><div class="comment-body"><div class="comment-author">Анна Сниткина</div><div class="comment-text">Федя, ты был великолепен. Я записала всё. Потом перечитаю.</div><span class="like-small">❤️ 67</span></div></div>
         <div class="comment"><img class="comment-avatar" src="tolstoy.jpg"><div class="comment-body"><div class="comment-author">Лев Толстой</div><div class="comment-text">Фёдор, приходи чай пить. Про опрощение поговорим. Без пророчеств.</div><span class="like-small">❤️ 23</span></div></div>
-        <div class="comment comment-reply"><img class="comment-avatar" src="dostoevsky.jpg"><div class="comment-body"><div class="comment-author">Фёдор Достоевский</div><div class="comment-text">Лев, у тебя 4 тома «Войны и мира». Какой чай, ты чего.</div><span class="like-small">❤️ 91</span></div></div>
+        <div class="comment comment-reply"><img class="comment-avatar" src="dostoevsky.jpeg"><div class="comment-body"><div class="comment-author">Фёдор Достоевский</div><div class="comment-text">Лев, у тебя 4 тома «Войны и мира». Какой чай, ты чего.</div><span class="like-small">❤️ 91</span></div></div>
       </div></div>
 
       <!-- ПОСТ 5 -->
       <div class="card"><div class="post">
-        <div class="post-header"><img class="post-avatar" src="dostoevsky.jpg"><div><div class="post-author">Фёдор Достоевский</div><div class="post-date">4 дня назад</div></div></div>
+        <div class="post-header"><img class="post-avatar" src="dostoevsky.jpeg"><div><div class="post-author">Фёдор Достоевский</div><div class="post-date">4 дня назад</div></div></div>
         <div class="post-text">Издаю «Гражданин». Хочу сказать правду. Цензура сказала: «Не всю и не здесь». Ладно, буду писать «Дневник писателя». Там хоть можно про то, как я в баню ходил и что там думал.</div>
         <div class="post-actions"><span class="like-btn" data-count="345">❤️ <span class="like-count">345</span></span><span>💬 2</span><span>↗ Поделиться</span></div>
       </div><div class="comments">
         <div class="comment"><img class="comment-avatar" src="belinsky.jpg"><div class="comment-body"><div class="comment-author">Виссарион Белинский</div><div class="comment-text">Фёдор, ты опять за своё. Я говорил: «Горе от ума» нужно. А ты про баню.</div><span class="like-small">❤️ 14</span></div></div>
-        <div class="comment comment-reply"><img class="comment-avatar" src="dostoevsky.jpg"><div class="comment-body"><div class="comment-author">Фёдор Достоевский</div><div class="comment-text">Виссарион Григорьевич, спасибо за отзыв о «Бедных людях».</div><span class="like-small">❤️ 56</span></div></div>
+        <div class="comment comment-reply"><img class="comment-avatar" src="dostoevsky.jpeg"><div class="comment-body"><div class="comment-author">Фёдор Достоевский</div><div class="comment-text">Виссарион Григорьевич, спасибо за отзыв о «Бедных людях».</div><span class="like-small">❤️ 56</span></div></div>
       </div></div>
       <!-- ПОСТ 6 -->
       <div class="card"><div class="post">
-        <div class="post-header"><img class="post-avatar" src="dostoevsky.jpg"><div><div class="post-author">Фёдор Достоевский</div><div class="post-date">5 дней назад</div></div></div>
+        <div class="post-header"><img class="post-avatar" src="dostoevsky.jpeg"><div><div class="post-author">Фёдор Достоевский</div><div class="post-date">5 дней назад</div></div></div>
         <div class="post-text">Отец хотел, чтобы я стал инженером. Я отучился. Ушел. Литература не прокормила, но я написал «Преступление и наказание», пока голодал. Зато чертежи помню. Тот, где Николай Павлович написал: «Какой дурак это чертил». Мне нравится этот факт.</div>
         <div class="post-actions"><span class="like-btn" data-count="567">❤️ <span class="like-count">567</span></span><span>💬 2</span><span>↗ Поделиться</span></div>
       </div><div class="comments">
         <div class="comment"><div class="comment-avatar" style="background:#7f8c8d;color:#fff;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:600;">МД</div><div class="comment-body"><div class="comment-author">Михаил Достоевский</div><div class="comment-text">Федя, а помнишь, мы по ночам Пушкина читали? Ты знал наизусть Онегина.</div><span class="like-small">❤️ 23</span></div></div>
-        <div class="comment comment-reply"><img class="comment-avatar" src="dostoevsky.jpg"><div class="comment-body"><div class="comment-author">Фёдор Достоевский</div><div class="comment-text">Миша, помню. Только теперь вместо Пушкина — Достоевский. Страдаю.</div><span class="like-small">❤️ 67</span></div></div>
+        <div class="comment comment-reply"><img class="comment-avatar" src="dostoevsky.jpeg"><div class="comment-body"><div class="comment-author">Фёдор Достоевский</div><div class="comment-text">Миша, помню. Только теперь вместо Пушкина — Достоевский. Страдаю.</div><span class="like-small">❤️ 67</span></div></div>
       </div></div>
 
       <!-- ПОСТ 7 -->
       <div class="card"><div class="post">
-        <div class="post-header"><img class="post-avatar" src="dostoevsky.jpg"><div><div class="post-author">Фёдор Достоевский</div><div class="post-date">6 дней назад</div></div></div>
+        <div class="post-header"><img class="post-avatar" src="dostoevsky.jpeg"><div><div class="post-author">Фёдор Достоевский</div><div class="post-date">6 дней назад</div></div></div>
         <div class="post-text">Стоял на Семёновской площади. Ждал расстрела. Осталось минуты три. Потом прискакал адъютант: «Государь помиловал. Каторга». Я не умер, но с тех пор живу не так, как раньше.</div>
         <div class="post-actions"><span class="like-btn" data-count="1000">❤️ <span class="like-count">1000</span></span><span>💬 2</span><span>↗ Поделиться</span></div>
       </div><div class="comments">
         <div class="comment"><img class="comment-avatar" src="snitkina.jpg"><div class="comment-body"><div class="comment-author">Анна Сниткина</div><div class="comment-text">Федя, ты мне это рассказывал в первый же вечер. Испугалась, но полюбила.</div><span class="like-small">❤️ 89</span></div></div>
         <div class="comment"><img class="comment-avatar" src="nikolay1.jpg"><div class="comment-body"><div class="comment-author">Николай I</div><div class="comment-text">Я вас помиловал. Не благодарите. И не пишите больше про каторгу мрачно.</div><span class="like-small">❤️ 45</span></div></div>
-        <div class="comment comment-reply"><img class="comment-avatar" src="dostoevsky.jpg"><div class="comment-body"><div class="comment-author">Фёдор Достоевский</div><div class="comment-text">Ваше Величество, я уже написал. И мрачно. Поздно.</div><span class="like-small">❤️ 134</span></div></div>
+        <div class="comment comment-reply"><img class="comment-avatar" src="dostoevsky.jpeg"><div class="comment-body"><div class="comment-author">Фёдор Достоевский</div><div class="comment-text">Ваше Величество, я уже написал. И мрачно. Поздно.</div><span class="like-small">❤️ 134</span></div></div>
       </div></div>
 
-      <!-- ФОТОАЛЬБОМЫ -->
+      <!-- ФОТОАЛЬБОМЫ — ИСПОЛЬЗУЮТ ВАШИ ИСТОРИИ И АВАТАРКУ, ТАК КАК ОНИ 100% ЗАГРУЖЕНЫ -->
       <div class="card"><div class="section-title">Фотоальбомы</div><div class="album-container">
-        <div class="album-card"><img class="album-cover" src="album1.jpg"><div class="album-title">Москва</div><div class="album-desc">Детские годы. До тоски.</div></div>
-        <div class="album-card"><img class="album-cover" src="album2.jpg"><div class="album-title">Омский острог</div><div class="album-desc">Чертежи каторжного быта.</div></div>
-        <div class="album-card"><img class="album-cover" src="album3.jpg"><div class="album-title">Черновики</div><div class="album-desc">Что не пропустила цензура.</div></div>
+        <div class="album-card"><img class="album-cover" src="dost_story1.jpg"><div class="album-title">Москва</div><div class="album-desc">Детские годы. До тоски.</div></div>
+        <div class="album-card"><img class="album-cover" src="dost_story2.jpg"><div class="album-title">Омский острог</div><div class="album-desc">Чертежи каторжного быта.</div></div>
+        <div class="album-card"><img class="album-cover" src="dost_story3.jpeg"><div class="album-title">Черновики</div><div class="album-desc">What не пропустила цензура.</div></div>
       </div></div>
 
       <!-- ИНТЕРЕСНЫЕ СТРАНИЦЫ -->
