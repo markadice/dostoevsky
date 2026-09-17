@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<title>Фёдор Достоевский — ВКонтакте</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: #edeef0; color: #000; padding: 68px 20px 20px; }
+  .top-header { background: #fff; height: 48px; border-bottom: 1px solid #e7e8ec; position: fixed; top: 0; left: 0; width: 100%; z-index: 1000; display: flex; align-items: center; justify-content: center; }
+  .header-content { max-width: 960px; width: 100%; display: flex; align-items: center; justify-content: space-between; padding: 0 20px; }
+  .header-logo { display: flex; align-items: center; gap: 6px; font-weight: bold; font-size: 16px; color: #000; text-decoration: none; }
+  .logo-icon { background: #0166ff; color: #fff; width: 24px; height: 24px; border-radius: 4px; display: flex; align-items: center; justify-content: center; font-size: 14px; }
+  .header-search { background: #edeef0; border: none; border-radius: 8px; padding: 6px 12px 6px 28px; font-size: 13px; width: 230px; outline: none; }
+  .header-mini-avatar { width: 28px; height: 28px; border-radius: 50%; object-fit: cover; }
+  .wrapper { max-width: 960px; margin: 0 auto; display: flex; gap: 20px; }
+  .left-menu { width: 180px; flex-shrink: 0; position: sticky; top: 68px; height: fit-content; }
+  .menu-item { display: flex; align-items: center; justify-content: space-between; padding: 6px 8px; font-size: 14px; color: #000; text-decoration: none; border-radius: 6px; margin-bottom: 2px; }
+  .menu-item:hover { background: #e4e5e7; }
+  .menu-left { display: flex; align-items: center; gap: 10px; }
+  .menu-icon { font-size: 16px; width: 20px; text-align: center; color: #2a5885; }
+  .menu-badge { background: #e1e5eb; color: #4c6680; font-size: 12px; padding: 1px 6px; border-radius: 10px; }
+  .main-content { flex-grow: 1; max-width: 700px; }
+  .card { background: #fff; border-radius: 8px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); margin-bottom: 12px; overflow: hidden; }
+  .profile-header { padding: 20px; display: flex; gap: 20px; }
+  .avatar { width: 120px; height: 120px; border-radius: 50%; border: 3px solid #fff; box-shadow: 0 1px 4px rgba(0,0,0,0.2); object-fit: cover; flex-shrink: 0; }
+  .post-avatar, .comment-avatar { width: 40px; height: 40px; border-radius: 50%; object-fit: cover; flex-shrink: 0; }
+  .comment-avatar { width: 32px; height: 32px; background: #ccd5de; color:#fff; display:flex; align-items:center; justify-content:center; font-size:11px; font-weight:600; border-radius:50%; }
+  .comment-reply .comment-avatar { width: 28px; height: 28px; }
+  .profile-info h1 { font-size: 22px; margin-bottom: 4px; }
+  .profile-info .status { color: #626d7a; font-size: 14px; margin-bottom: 12px; font-style: italic; }
+  .profile-info .meta { font-size: 14px; color: #626d7a; line-height: 1.7; }
+  .counters { display: flex; gap: 24px; margin-top: 12px; padding-top: 12px; border-top: 1px solid #e7e8ec; }
+  .counter { text-align: center; } .counter .num { font-weight: 600; font-size: 16px; } .counter .label { font-size: 12px; color: #939393; }
+  .post { padding: 16px 20px; } .post-header { display: flex; align-items: center; gap: 10px; margin-bottom: 10px; }
+  .post-author { font-weight: 600; font-size: 14px; color: #2a5885; text-decoration: none; } .post-date { font-size: 12px; color: #939393; }
+  .post-text { font-size: 14px; line-height: 1.5; margin-bottom: 12px; white-space: pre-line; }
+  .post-img { width: 100%; max-height: 260px; object-fit: cover; margin-bottom: 12px; border-radius: 4px; }
+  .post-actions { display: flex; gap: 20px; padding-top: 10px; border-top: 1px solid #e7e8ec; font-size: 13px; color: #626d7a; }
+  .like-btn { cursor: pointer; user-select: none; }
+  .comments { background: #f7f8fa; padding: 12px 20px; border-top: 1px solid #e7e8ec; }
+  .comment { display: flex; gap: 10px; margin-bottom: 12px; } .comment-body { font-size: 13px; line-height: 1.4; width: 100%; }
+  .comment-author { font-weight: 600; color: #2a5885; text-decoration: none; } .comment-reply { margin-left: 42px; margin-top: 8px; }
+  .like-small { color: #939393; font-size: 12px; margin-top: 4px; display: inline-block; }
+  .section-title { padding: 16px 20px 8px; font-size: 13px; font-weight: 600; color: #626d7a; text-transform: uppercase; border-bottom: 1px solid #edeef0; }
+  .story-container { padding: 16px 20px; display: flex; gap: 12px; overflow-x: auto; }
+  .story-card { background: #2c3e50; border-radius: 8px; padding: 12px; color: #fff; font-size: 11px; min-width: 140px; height: 180px; display: flex; flex-direction: column; justify-content: space-between; box-shadow: inset 0 -50px 40px rgba(0,0,0,0.8); background-size: cover; background-position: center; }
+  .album-container { padding: 16px 20px; display: flex; gap: 16px; overflow-x: auto; }
+  .album-card { width: 180px; flex-shrink: 0; }
+  .album-cover { width: 180px; height: 110px; border-radius: 6px; background: #2c3e50; background-size: cover; background-position: center; margin-bottom: 6px; }
+  .album-title { font-size: 13px; font-weight: 600; color: #2a5885; } .album-desc { font-size: 11px; color: #626d7a; line-height: 1.3; }
+  .groups { padding: 10px 20px; } .group { display: flex; align-items: center; gap: 12px; padding: 10px 0; border-bottom: 1px solid #f0f0f0; }
+  .group-name { font-size: 14px; font-weight: 500; color: #2a5885; } .group-subs { font-size: 12px; color: #939393; }
+</style>
+</head>
+<body>
+  <div class="top-header">
+    <div class="header-content">
+      <div class="header-left">
+        <a href="#" class="header-logo"><div class="logo-icon">вс</div>всовести</a>
+        <div style="position: relative;"><span style="position: absolute; left: 10px; top: 6px; color: #818c99;">🔍</span><input type="text" class="header-search" placeholder="Поиск цензуры..."></div>
+      </div>
+      <div class="header-right"><span>🔔</span><span>🎵</span><img class="header-mini-avatar" src="dostoevsky.jpg" alt="ФМ"></div>
+    </div>
+  </div>
+  <div class="wrapper">
+    <div class="left-menu">
+      <a href="#" class="menu-item"><div class="menu-left"><span class="menu-icon">👤</span>Профиль</div></a>
+      <a href="#" class="menu-item"><div class="menu-left"><span class="menu-icon">📰</span>Лента</div></a>
+      <a href="#" class="menu-item"><div class="menu-left"><span class="menu-icon">💬</span>Мессенджер</div><span class="menu-badge">13</span></a>
+      <a href="#" class="menu-item"><div class="menu-left"><span class="menu-icon">👥</span>Друзья</div><span class="menu-badge">7</span></a>
+      <a href="#" class="menu-item"><div class="menu-left"><span class="menu-icon">👨‍👩‍👧‍👦</span>Сообщества</div><span class="menu-badge">6</span></a>
+      <a href="#" class="menu-item"><div class="menu-left"><span class="menu-icon">🖼️</span>Фото</div><span class="menu-badge">142</span></a>
+    </div>
+    <div class="main-content">
+      <div class="card">
+        <div class="profile-header">
+          <img class="avatar" src="dostoevsky.jpg" alt="Фёдор">
+          <div class="profile-info">
+            <h1>Фёдор Достоевский</h1>
+            <div class="status">Пишу роман. Персонажи не слушаются. Особенно этот… как его… Иван.</div>
+            <div class="meta">
+              <div>📍 <b>Санкт-Петербург</b> · Женат на Анне Сниткиной · Дети: Люба, Федя</div>
+              <div>🎓 Инженерное училище · Каторга: 4 года · Языки: русский, французский, немецкий</div>
+            </div>
+            <div class="counters">
+              <div class="counter"><div class="num">1 881</div><div class="label">подписчики</div></div>
+              <div class="counter"><div class="num">7</div><div class="label">друзья</div></div>
+              <div class="counter"><div class="num">142</div><div class="label">фото</div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="section-title">Истории</div>
+        <div class="story-container">
+          <div class="story-card" style="background-image: url('dost_story1.jpg');"><span>2 часа назад</span><p style="text-shadow: 1px 1px 2px #000;">«Ночь. Жёлтый дом. Кажется, идёт Раскольников. Или это я.»</p></div>
+          <div class="story-card" style="background-image: url('dost_story2.jpg');"><span>5 часов назад</span><p style="text-shadow: 1px 1px 2px #000;">«Перечитал роман. Плакал. Жалко себя. В смысле, страдаю.»</p></div>
+          <div class="story-card" style="background-image: url('dost_story3.jpg');"><span>вчера</span><p style="text-shadow: 1px 1px 2px #000;">«Смотрел на Пушкина. Написал речь. Заплакал. Всё как обычно.»</p></div>
+        </div>
+      </div>
+      <div class="card"><div class="post">
+        <div class="post-header"><img class="post-avatar" src="dostoevsky.jpg"><div><div class="post-author">Фёдор Достоевский</div><div class="post-date">сегодня в 06:14</div></div></div>
+        <div class="post-text">Вспоминаю Омский острог. Четыре года каторги. Самое страшное — бани. Восемь человек на пяти полках. И все молчат. Четыре года молчания — это хуже каторги. Зато материал для романа собрал.</div>
+        <img class="post-img" src="omsk.jpg"><div class="post-actions"><span class="like-btn" data-count="512">❤️ <span class="like-count">512</span></span><span>💬 4</span></div>
+      </div><div class="comments">
+        <div class="comment"><img class="comment-avatar" src="nekrasov.jpg"><div><div class="comment-author">Николай Некрасов</div><div>Фёдор, приходи в «Современник», обсудим. Мы как раз про каторгу пишем.</div></div></div>
+        <div class="comment comment-reply"><img class="comment-avatar" src="dostoevsky.jpg"><div><div class="comment-author">Фёдор Достоевский</div><div>Николай Алексеевич, я только с каторги. Дайте хоть чай попить.</div></div></div>
+        <div class="comment"><img class="comment-avatar" src="turgenev.jpg"><div><div class="comment-author">Иван Тургенев</div><div>Вы всё о страданиях. А я вот во Франции был — там тепло.</div></div></div>
+        <div class="comment comment-reply"><img class="comment-avatar" src="dostoevsky.jpg"><div><div class="comment-author">Фёдор Достоевский</div><div>Иван Сергеевич, у вас своя Франция, у меня свой Омск. Не путайте.</div></div></div>
+      </div></div>
+      <div class="card"><div class="post">
+        <div class="post-header"><img class="post-avatar" src="dostoevsky.jpg"><div><div class="post-author">Фёдор Достоевский</div><div class="post-date">вчера в 23:47</div></div></div>
+        <div class="post-text">В Инженерном училище шел в ординарцах к Великому Князю. Забыл отрапортовать: «К Вашему Императорскому Высочеству». Князь сказал: «Посылают же таких дураков». Потом написал «Идиот». Слово означало «не такой как все». Констатация.</div>
+        <img class="post-img" src="uchilische.jpg"><div class="post-actions"><span class="like-btn" data-count="674">❤️ <span class="like-count">674</span></span><span>💬 4</span></div>
+      </div><div class="comments">
+        <div class="comment"><img class="comment-avatar" src="snitkina.jpg"><div><div class="comment-author">Анна Сниткина</div><div>Федя, ты опять про Князя. Иди спать. Завтра сдавать главу.</div></div></div>
+        <div class="comment comment-reply"><img class="comment-avatar" src="dostoevsky.jpg"><div><div class="comment-author">Фёдор Достоевский</div><div>Аня, я работаю. В смысле, страдаю. В смысле, иду спать.</div></div></div>
+        <div class="comment"><img class="comment-avatar" src="nikolay1.jpg"><div><div class="comment-author">Николай I</div><div>Я не это имел в виду. Но роман хороший. Читал. Дважды.</div></div></div>
+        <div class="comment comment-reply"><img class="comment-avatar" src="dostoevsky.jpg"><div><div class="comment-author">Фёдор Достоевский</div><div>Ваше Величество, вы меня чуть не расстреляли. Но спасибо за отзыв.</div></div></div>
+      </div></div>
+      <div class="card"><div class="post">
+        <div class="post-header"><img class="post-avatar" src="dostoevsky.jpg"><div><div class="post-author">Фёдор Достоевский</div><div class="post-date">вчера в 19:40</div></div></div>
+        <div class="post-text">Был в Висбадене. Проиграл всё. Абсолютно всё. Занял у Тургенева — проиграл. Занял у Анны — проиграл. Заложил кольцо. Написал «Игрока» за 26 дней, чтобы вернуть долги. Аня сказала: «Больше никогда». Я сказал: «Конечно». Через неделю проиграл снова.</div>
+        <img class="post-img" src="visbaden.jpg"><div class="post-actions"><span class="like-btn" data-count="421">❤️ <span class="like-count">421</span></span><span>💬 3</span></div>
+      </div><div class="comments">
+        <div class="comment"><img class="comment-avatar" src="snitkina.jpg"><div><div class="comment-author">Анна Сниткина</div><div>Федя, я тебе сказала: больше никогда. А ты что сделал?</div></div></div>
+        <div class="comment comment-reply"><img class="comment-avatar" src="dostoevsky.jpg"><div><div class="comment-author">Фёдор Достоевский</div><div>Аня, это был последний раз. Ну, может, предпоследний.</div></div></div>
+        <div class="comment"><img class="comment-avatar" src="turgenev.jpg"><div><div class="comment-author">Иван Тургенев</div><div>Фёдор, ты мне деньги так и не вернул.</div></div></div>
+        <div class="comment comment-reply"><img class="comment-avatar" src="dostoevsky.jpg"><div><div class="comment-author">Фёдор Достоевский</div><div>Иван Сергеевич, я верну. Когда выиграю. То есть никогда.</div></div></div>
+      </div></div>
+      <div class="card"><div class="post">
+        <div class="post-header"><img class="post-avatar" src="dostoevsky.jpg"><div><div class="post-author">Фёдор Достоевский</div><div class="post-date">3 дня назад</div></div></div>
+        <div class="post-text">Выступил с речью о Пушкине. Зал плакал. Я плакал. Все плакали. Студент подошел: «Вы наш пророк». Я: «Я просто писатель, который не спит ночами». Он: «Это и есть пророчество». Я: «Нет. Это бессонница».</div>
+        <div class="post-actions"><span class="like-btn" data-count="889">❤️ <span class="like-count">889</span></span><span>💬 3</span></div>
+      </div><div class="comments">
+        <div class="comment"><img class="comment-avatar" src="snitkina.jpg"><div><div class="comment-author">Анна Сниткина</div><div>Федя, ты был великолепен. Я записала всё. Потом перечитаю.</div></div></div>
+        <div class="comment"><img class="comment-avatar" src="tolstoy.jpg"><div><div class="comment-author">Лев Толстой</div><div>Фёдор, приходи чай пить. Про опрощение поговорим. Без пророчеств.</div></div></div>
+        <div class="comment comment-reply"><img class="comment-avatar" src="dostoevsky.jpg"><div><div class="comment-author">Фёдор Достоевский</div><div>Лев, у тебя 4 тома «Войны и мира». Какой чай, ты чего.</div></div></div>
+      </div></div>
+      <div class="card"><div class="post">
+        <div class="post-header"><img class="post-avatar" src="dostoevsky.jpg"><div><div class="post-author">Фёдор Достоевский</div><div class="post-date">4 дня назад</div></div></div>
+        <div class="post-text">Издаю «Гражданин». Хочу сказать правду. Цензура сказала: «Не всю и не здесь». Ладно, буду писать «Дневник писателя». Там можно про то, как я в баню ходил и что думал.</div>
+        <div class="post-actions"><span class="like-btn" data-count="345">❤️ <span class="like-count">345</span></span><span>💬 2</span></div>
+      </div><div class="comments">
+        <div class="comment"><img class="comment-avatar" src="belinsky.jpg"><div><div class="comment-author">Виссарион Белинский</div><div>Фёдор, ты опять за своё. Я говорил: «Горе от ума» нужно. А ты про баню.</div></div></div>
+        <div class="comment comment-reply"><img class="comment-avatar" src="dostoevsky.jpg"><div><div class="comment-author">Фёдор Достоевский</div><div>Виссарион Григорьевич, спасибо за отзыв о «Бедных людях».</div></div></div>
+      </div></div>
+      <div class="card"><div class="post">
+        <div class="post-header"><img class="post-avatar" src="dostoevsky.jpg"><div><div class="post-author">Фёдор Достоевский</div><div class="post-date">5 дней назад</div></div></div>
+        <div class="post-text">Отец хотел, чтобы я стал инженером. Я отучился. Ушел. Литература не прокормила, но я написал «Преступление и наказание», пока голодал. Зато чертежи помню. Тот, где Николай Павлович написал: «Какой дурак это чертил». Мне нравится этот факт.</div>
+        <div class="post-actions"><span class="like-btn" data-count="567">❤️ <span class="like-count">567</span></span><span>💬 2</span></div>
+      </div><div class="comments">
+        <div class="comment"><div class="comment-avatar">МД</div><div><div class="comment-author">Михаил Достоевский</div><div>Федя, а помнишь, мы по ночам Пушкина читали? Ты знал наизусть Онегина.</div></div></div>
+        <div class="comment comment-reply"><img class="comment-avatar" src="dostoevsky.jpg"><div><div class="comment-author">Фёдор Достоевский</div><div>Миша, помню. Только теперь вместо Пушкина — Достоевский. Страдаю.</div></div></div>
+      </div></div>
+      <div class="card"><div class="post">
+        <div class="post-header"><img class="post-avatar" src="dostoevsky.jpg"><div><div class="post-author">Фёдор Достоевский</div><div class="post-date">6 дней назад</div></div></div>
+        <div class="post-text">Стоял на Семёновской площади. Ждал расстрела. Осталось минуты три. Потом прискакал адъютант: «Государь помиловал. Каторга». Я не умер, но с тех пор живу не так, как раньше.</div>
+        <div class="post-actions"><span class="like-btn" data-count="1000">❤️ <span class="like-count">1000</span></span><span>💬 2</span></div>
+      </div><div class="comments">
+        <div class="comment"><img class="comment-avatar" src="snitkina.jpg"><div><div class="comment-author">Анна Сниткина</div><div>Федя, ты мне это рассказывал в первый же вечер. Испугалась, но полюбила.</div></div></div>
+        <div class="comment"><img class="comment-avatar" src="nikolay1.jpg"><div><div class="comment-author">Николай I</div><div>Я вас помиловал. Не благодарите. И не пишите больше про каторгу мрачно.</div></div></div>
+        <div class="comment comment-reply"><img class="comment-avatar" src="dostoevsky.jpg"><div><div class="comment-author">Фёдор Достоевский</div><div>Ваше Величество, я уже написал. И мрачно. Поздно.</div></div></div>
+      </div></div>
+      <div class="card"><div class="section-title">Фотоальбомы</div><div class="album-container">
+        <div class="album-card"><div class="album-cover" style="background-image:url('album1.jpg')"></div><div class="album-title">Москва</div><div class="album-desc">Детские годы. До тоски.</div></div>
+        <div class="album-card"><div class="album-cover" style="background-image:url('album2.jpg')"></div><div class="album-title">Омский острог</div><div class="album-desc">Чертежи каторжного быта.</div></div>
+        <div class="album-card"><div class="album-cover" style="background-image:url('album3.jpg')"></div><div class="album-title">Черновики</div><div class="album-desc">Что не пропустила цензура.</div></div>
+      </div></div>
+      <div class="card"><div class="section-title">Интересные страницы</div><div class="groups">
+        <div class="group"><div class="group-icon">⛓</div><div><div class="group-name">Каторга: выжившие</div><div class="group-subs">4 812 подп.</div></div></div>
+        <div class="group"><div class="group-icon">⚡</div><div><div class="group-name">Эпилепсия: жить дальше</div><div class="group-subs">1 866 подп.</div></div></div>
+        <div class="group"><div class="group-icon">🎲</div><div><div class="group-name">Рулетка: как не проиграть всё</div><div class="group-subs">0 подп. (все проиграли)</div></div></div>
+        <div class="group"><div class="group-icon">📖</div><div><div class="group-name">Дневник писателя</div><div class="group-subs">1 877 подп.</div></div></div>
+        <div class="group"><div class="group-icon">🪓</div><div><div class="group-name">Топоры: история и применение</div><div class="group-subs">666 подп.</div></div></div>
+        <div class="group"><div class="group-icon">☕</div><div><div class="group-name">Бессонница</div><div class="group-subs">100 подп.</div></div></div>
+      </div></div>
+    </div>
+  </div>
+<script>
+  document.querySelectorAll('.like-btn').forEach(btn => {
+    btn.addEventListener('click', function() {
+      let countSpan = this.querySelector('.like-count');
+      let currentCount = parseInt(this.getAttribute('data-count'));
+      if (this.classList.contains('liked')) {
+        this.classList.remove('liked'); this.style.color = '#626d7a'; countSpan.textContent = currentCount;
+      } else {
+        this.classList.add('liked'); this.style.color = '#e64646'; countSpan.textContent = currentCount + 1;
+      }
+    });
+  });
+</script>
+</body>
+</html>
